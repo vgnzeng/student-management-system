@@ -1,11 +1,10 @@
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
-<head th:include="layout :: htmlhead" th:with="title='Student List'"></head>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>Student List</head>
 <body>
-<div  layout:fragment="content" >
+<div>
     <head>
         <meta charset="UTF-8"/>
         <title>Student List</title>
-        <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
     </head>
     <body class="container">
     <br/>
@@ -33,12 +32,10 @@
                 <td th:text="${user.userType}">User</td>
                 <td th:text="${user.age}">6</td>
                 <td th:text="${#dates.format(user.regTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
-                <td><a th:href="@{/toEdit(id=${user.id})}"  th:if="${user.userType !='manage'}" >edit</a></td>
-                <td><a th:href="@{/delete(id=${user.id})}"  onclick="return confirm('Are you sure want to delete？')"  th:if="${user.userType !='manage'}" >delete</a></td>
             </tr>
             </tbody>
         </table>
-        <div th:include="page :: pager" th:remove="tag"></div>
+        
     </div>
 
     </body>

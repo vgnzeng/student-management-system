@@ -1,4 +1,4 @@
-package com.zeng.studentmanagementsystem;
+package com.zeng;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
