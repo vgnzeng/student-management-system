@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head th:include="layout :: htmlhead" th:with="title='Student List'"></head>
+<body>
+<div  layout:fragment="content" >
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Student List</title>
+        <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+    </head>
+    <body class="container">
+    <br/>
+    <h1>Student List</h1>
+    <br/><br/>
+    <div class="with:80%">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <!--<th>#</th>-->
+                <th>User Name</th>
+                <th>Email</th>
+                <th>User Type</th>
+                <th>Age</th>
+                <th>Reg Time</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="user : ${users}">
+                <!--<th scope="row" th:text="${user.id}">1</th>-->
+                <td th:text="${user.userName}">neo</td>
+                <td th:text="${user.email}">neo@126.com</td>
+                <td th:text="${user.userType}">User</td>
+                <td th:text="${user.age}">6</td>
+                <td th:text="${#dates.format(user.regTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td><a th:href="@{/toEdit(id=${user.id})}"  th:if="${user.userType !='manage'}" >edit</a></td>
+                <td><a th:href="@{/delete(id=${user.id})}"  onclick="return confirm('Are you sure want to delete？')"  th:if="${user.userType !='manage'}" >delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:include="page :: pager" th:remove="tag"></div>
+    </div>
+
+    </body>
+</div>
+</body>
+</html>
