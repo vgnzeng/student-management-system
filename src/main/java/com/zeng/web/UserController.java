@@ -43,4 +43,9 @@ public class UserController {
         return "redirect:/list";
     }
 
+    @RequestMapping("/toAdd")
+    public String toAdd() {
+        return "user/userAdd";
+    }
+
 }
