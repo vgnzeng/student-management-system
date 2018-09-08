@@ -45,7 +45,7 @@ public class UserController {
         }
         UserEntity u= userRepository.findByUserNameOrEmail(userParam.getUserName(),userParam.getEmail());
         if(u!=null){
-            model.addAttribute("errorMsg","用户已存在!");
+            model.addAttribute("errorMsg","Student exists!");
             return "user/userAdd";
         }
         UserEntity user=new UserEntity();
@@ -61,6 +61,12 @@ public class UserController {
         return "user/userAdd";
     }
 
+    @RequestMapping("/toEdit")
+    public String toEdit(Model model,String id) {
+        UserEntity user = userRepository.findById(id);
+        model.addAttribute("user", user);
+        return "user/userEdit";
+    }
 
 
 }
