@@ -2,21 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>user</title>
+    <title>Register</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
 </head>
 <body class="container">
 <br/>
-<h1>Login</h1>
+<h1>Register</h1>
 <br/><br/>
 <div class="with:60%">
-    <div style="margin: 10px 90px;">Need an account? register<a  th:href="@{/toRegister}">Register</a></div>
+    <div style="margin: 10px 90px;">Use existing account<a  th:href="@{/toLogin}">Login</a></div>
 
-    <form class="form-horizontal"   th:action="@{/login}"  method="post" >
+    <form class="form-horizontal"   th:action="@{/register}"  method="post" >
         <div class="form-group">`
-            <label for="loginName" class="col-sm-2 control-label">Login Name</label>
+            <label for="userName" class="col-sm-2 control-label">User Name</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="loginName"  id="loginName" placeholder="enter userName or email"/>
+                <input type="text" class="form-control" name="userName"  id="userName"  placeholder="enter userName"/>
+            </div>
+        </div>
+        <div class="form-group">`
+            <label for="email" class="col-sm-2 control-label">email</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="email"  id="email" placeholder="enter email"/>
             </div>
         </div>
         <div class="form-group">
@@ -38,6 +44,9 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-6">
                 <input type="submit" value="Submit" class="btn btn-info" />
+                &nbsp; &nbsp; &nbsp;
+                <input type="reset" value="Reset" class="btn btn-info" />
+
             </div>
         </div>
     </form>

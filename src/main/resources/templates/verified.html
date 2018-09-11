@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Email Verification</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>Email Verification</h1>
+<br/><br/>
+<div class="with:60%">
+    <h3 th:if="${userName!=null}">Email verified<a href="/toLogin">Please login</a></h3>
+    <h3 th:if="${userName==null}">Please check email again<a href="/toRegister">Register</a></h3>
+</div>
+</body>
+</html>
