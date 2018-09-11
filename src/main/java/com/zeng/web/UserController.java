@@ -43,6 +43,8 @@ public class UserController {
         return "user/list";
     }
 
+
+
     @RequestMapping("/add")
     public String add(@Valid UserParam userParam,BindingResult result, ModelMap model) {
         String errorMsg="";
